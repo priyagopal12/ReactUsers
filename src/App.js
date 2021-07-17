@@ -10,7 +10,7 @@ function App() {
   },[])
 
   const getUsers = () =>{
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('http://localhost:4000/users')
     .then(response => response.json())
     .then(response => setData(response))
   }
@@ -32,7 +32,7 @@ function App() {
         options={{actionsColumnIndex:-1,addRowPosition:"first"}}
         editable={{
           onRowAdd:(newData) => new Promise((resolve,reject) => {
-            fetch('https://jsonplaceholder.typicode.com/users',{
+            fetch('http://localhost:4000/users',{
               method:"POST",
               headers:{
                 'Content-type':"application/json"
@@ -43,7 +43,7 @@ function App() {
             resolve()})
           }),
           onRowUpdate:(newData,oldData) => new Promise((resolve,reject) => {
-            fetch('https://jsonplaceholder.typicode.com/users/'+oldData.id,{
+            fetch('http://localhost:4000/users/'+oldData.id,{
               method:"PUT",
               headers:{
                 'Content-type':"application/json"
@@ -54,7 +54,7 @@ function App() {
             resolve()})
           }),
           onRowDelete:(oldData) => new Promise((resolve,reject) => {
-            fetch('https://jsonplaceholder.typicode.com/users/'+oldData.id,{
+            fetch('http://localhost:4000/users/'+oldData.id,{
               method:"DELETE",
               headers:{
                 'Content-type':"application/json"
