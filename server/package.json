@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server --watch users.json --port 4000"
+    "start": "json-server --watch users.json --port process.env.PORT || 5000"
   },
   "keywords": [],
   "author": "",
